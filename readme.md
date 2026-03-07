@@ -1,3 +1,23 @@
-# TODO
+# Retry
 
-Looks like someone needs to write this readme...
+## Overview
+
+Allows retrying an arbitrary operation.
+
+```ts
+const data = await retry({
+  attempts: 5,
+  delay: n => n * n * 100, // Interpreted as milliseconds
+  fn: () => {
+    const res = await fetch('https://unreliable-flaky-host.com/api/data');
+    if (res.status >= 500) throw Error('unreliable host flaked')[mod]({ retry: true });
+    
+    const json = await res.json();
+    if (json === `we're experiencing problems sorry`)
+      throw Error('unreliable host flaked')[mod]({ retry: true });
+    
+    return json;
+  },
+  retryable: err => !!err.retry
+});
+```

@@ -1,0 +1,1 @@
+export default (err: any) => !!err.retry;
