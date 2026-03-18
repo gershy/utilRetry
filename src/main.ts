@@ -25,7 +25,7 @@ export default async <Args extends RetryArgs>(args: Args): Promise<{ val: Awaite
       if (!retryable(err)) throw err;
       
       errs.push(err);
-      if (errs.length >= attempts) throw Error('retries exhausted')[mod]({ cause: errs[0], errs });
+      if (errs.length >= attempts) throw Error('retries exhausted')[clearing.mod]({ cause: errs[0], errs });
       
       if (delay) await new Promise(r => setTimeout(r, delay(errs.length)));
        
