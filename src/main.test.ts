@@ -12,6 +12,8 @@ import retry from './main.ts';
   
 })();
 
+const { mod } = clearing;
+
 testRunner([
   
   {
