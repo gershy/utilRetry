@@ -1,6 +1,6 @@
 {
   "name": "@gershy/util-retry",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "TODO",
   "keywords": [
     "TODO"
@@ -16,7 +16,7 @@
   "homepage": "https://github.com/gershy/utilRetry#readme",
   "license": "ISC",
   "peerDependencies": {
-    "@gershy/clearing": "^0.0.35"
+    "@gershy/clearing": "^0.0.36"
   },
   "devDependencies": {
     "@types/node": "^24.10.1",
