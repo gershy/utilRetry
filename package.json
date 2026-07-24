@@ -1,6 +1,6 @@
 {
   "name": "@gershy/util-retry",
-  "version": "0.0.18",
+  "version": "0.0.19",
   "author": "Gershom Maes",
   "description": "TODO",
   "keywords": [
@@ -25,7 +25,6 @@
   "devDependencies": {
     "@gershy/entry": "^0.0.18",
     "@gershy/logger": "^0.0.16",
-    "@gershy/util-codec-parse": "^0.0.16",
     "@types/node": "^24.10.1"
   },
   "exports": {
