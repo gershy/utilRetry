@@ -1,25 +1,36 @@
 import { assertEqual, testRunner } from '../build/utils.test.ts';
 import retry from './main.ts';
+import { entry } from '@gershy/entry';
 
-// Type testing
-(async () => {
-  
-  type Enforce<Provided, Expected extends Provided> = { provided: Provided, expected: Expected };
-  
-  type Tests = {
-    1: Enforce<{ x: 'y' }, { x: 'y' }>,
-  };
-  if (0) ((v?: Tests) => void 0)();
-  
-})();
+const codec = {
+  type: 'rec',
+  props: {
+    
+    reg:    { type: 'str', map: (str: string) => new RegExp(str) },
+    effort: { type: 'enum', opts: [ 0, 1, 2, 3, 4, 5, 6 ] },
+    
+  }
+} as const;
 
-const { mod } = clearing;
+const mod: typeof cl.mod = cl.mod;
 
-testRunner([
+entry({ name: 'utilRetry', codec, inp: { reg: '^', effort: 0 }, fn: async (logger, { reg, effort, ...inp }) => {
   
-  {
-    name: 'basic success',
-    fn: async () => {
+  // Type testing
+  (async () => {
+    
+    type Enforce<Provided, Expected extends Provided> = { provided: Provided, expected: Expected };
+    
+    type Tests = {
+      1: Enforce<{ x: 'y' }, { x: 'y' }>,
+    };
+    if (0) ((v?: Tests) => void 0)();
+    
+  })();
+  
+  await testRunner({ logger, reg, effort, inp, cases: [
+    
+    { name: 'basic success', fn: async () => {
       
       const result = await retry({
         
@@ -31,11 +42,8 @@ testRunner([
       
       assertEqual(result, { val: 'hello', errs: [] });
       
-    }
-  },
-  {
-    name: 'basic retry',
-    fn: async () => {
+    }},
+    { name: 'basic retry', fn: async () => {
       
       await retry({
         
@@ -59,11 +67,8 @@ testRunner([
         
       );
       
-    }
-  },
-  {
-    name: 'basic prevented retry',
-    fn: async () => {
+    }},
+    { name: 'basic prevented retry', fn: async () => {
       
       await retry({
         
@@ -80,11 +85,8 @@ testRunner([
         
       );
       
-    }
-  },
-  {
-    name: 'retry to success',
-    fn: async () => {
+    }},
+    { name: 'retry to success', fn: async () => {
       
       const result = await retry({
         
@@ -112,7 +114,9 @@ testRunner([
         ]
       });
       
-    }
-  }
+    }}
+    
+  ]});
   
-]);
+}});
+
