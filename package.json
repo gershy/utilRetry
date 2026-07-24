@@ -1,6 +1,6 @@
 {
   "name": "@gershy/util-retry",
-  "version": "0.0.17",
+  "version": "0.0.18",
   "author": "Gershom Maes",
   "description": "TODO",
   "keywords": [
@@ -23,7 +23,7 @@
     "@gershy/clearing": "^0.0.48"
   },
   "devDependencies": {
-    "@gershy/entry": "^0.0.17",
+    "@gershy/entry": "^0.0.18",
     "@gershy/logger": "^0.0.16",
     "@gershy/util-codec-parse": "^0.0.16",
     "@types/node": "^24.10.1"
@@ -37,5 +37,6 @@
   "scripts": {
     "test": "npm run ts.check && npx tsx ./src/main.test.ts",
     "ts.check": "npx tsc --noEmit"
-  }
+  },
+  "dependencies": {}
 }
