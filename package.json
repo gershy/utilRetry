@@ -1,6 +1,6 @@
 {
   "name": "@gershy/util-retry",
-  "version": "0.0.20",
+  "version": "0.0.21",
   "author": "Gershom Maes",
   "description": "TODO",
   "keywords": [
@@ -20,11 +20,11 @@
   ],
   "license": "ISC",
   "peerDependencies": {
-    "@gershy/clearing": "^0.0.49"
+    "@gershy/clearing": "^0.0.50"
   },
   "devDependencies": {
-    "@gershy/entry": "^0.0.19",
-    "@gershy/logger": "^0.0.17",
+    "@gershy/entry": "^0.0.20",
+    "@gershy/logger": "^0.0.18",
     "@types/node": "^24.10.1"
   },
   "exports": {

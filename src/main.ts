@@ -1,17 +1,17 @@
 import '@gershy/clearing';
 import defaultRetryable from './defaultRetryable.ts';
 
-export type RetryArgs = {
+export type RetryArgs<R> = {
   attempts: number,
   delayMs?: (attempt: number) => number, // Starts counting from `1`
-  retryable?: (err: any) => boolean,
-  fn: (attempt: 1 | 2 | 3 | number) => any,
+  retry?: (err: any) => boolean,
+  fn: (attempt: 1 | 2 | 3 | number) => R,
 };
-export default async <Args extends RetryArgs>(args: Args): Promise<{ val: Awaited<ReturnType<Args['fn']>>, errs: any[] }> => {
+export default async <R>(args: RetryArgs<R>): Promise<{ val: Awaited<R>, errs: any[] }> => {
   
   // Note that by default, errors are considered retryable if they have a true-ish "retry" property
   
-  const { attempts, delayMs = null, retryable = defaultRetryable, fn } = args;
+  const { attempts, delayMs = null, retry: retryable = defaultRetryable, fn } = args;
   
   const errs: any[] = [];
   while (true) {

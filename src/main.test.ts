@@ -35,7 +35,7 @@ entry({ name: 'utilRetry', codec, inp: { reg: '^', effort: 0 }, fn: async (logge
       const result = await retry({
         
         attempts: 100,
-        delay: n => 0,
+        delayMs: n => 0,
         fn: async () => 'hello'
         
       });
@@ -48,7 +48,7 @@ entry({ name: 'utilRetry', codec, inp: { reg: '^', effort: 0 }, fn: async (logge
       await retry({
         
         attempts: 3,
-        delay: n => 0,
+        delayMs: n => 0,
         fn: async n => { throw Error(`ow`)[mod]({ n, retry: true }); }
         
       }).then(
@@ -73,7 +73,7 @@ entry({ name: 'utilRetry', codec, inp: { reg: '^', effort: 0 }, fn: async (logge
       await retry({
         
         attempts: 3,
-        delay: n => 0,
+        delayMs: n => 0,
         fn: async n => { throw Error(`ow`)[mod]({ n /* retry: true */ }); }
         
       }).then(
@@ -91,7 +91,7 @@ entry({ name: 'utilRetry', codec, inp: { reg: '^', effort: 0 }, fn: async (logge
       const result = await retry({
         
         attempts: 10,
-        delay: n => 0,
+        delayMs: n => 0,
         fn: async n => {
           if (n !== 9) throw Error(`ow`)[mod]({ n, retry: true });
           return 'yay'
