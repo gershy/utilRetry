@@ -3,7 +3,7 @@ import defaultRetryable from './defaultRetryable.ts';
 
 export type RetryArgs<R> = {
   attempts: number,
-  delayMs?: (attempt: number) => number, // Starts counting from `1`
+  delayMs?: (attempt: 1 | 2 | 3 | number) => number, // Starts counting from `1`
   retry?: (err: any) => boolean,
   fn: (attempt: 1 | 2 | 3 | number) => R,
 };
