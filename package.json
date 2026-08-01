@@ -1,6 +1,6 @@
 {
   "name": "@gershy/util-retry",
-  "version": "0.0.22",
+  "version": "0.0.23",
   "author": "Gershom Maes",
   "description": "TODO",
   "keywords": [
@@ -8,23 +8,23 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gershy/utilRetry.git"
+    "url": "git+https://github.com/gershyNpm/utilRetry.git"
   },
   "bugs": {
-    "url": "https://github.com/gershy/utilRetry/issues"
+    "url": "https://github.com/gershyNpm/utilRetry/issues"
   },
-  "homepage": "https://github.com/gershy/utilRetry#readme",
+  "homepage": "https://github.com/gershyNpm/utilRetry#readme",
   "type": "module",
   "files": [
     "cmp"
   ],
   "license": "ISC",
   "peerDependencies": {
-    "@gershy/clearing": "^0.0.51"
+    "@gershy/clearing": "^0.0.52"
   },
   "devDependencies": {
-    "@gershy/entry": "^0.0.21",
-    "@gershy/logger": "^0.0.19",
+    "@gershy/entry": "^0.0.22",
+    "@gershy/logger": "^0.0.20",
     "@types/node": "^24.10.1"
   },
   "exports": {
